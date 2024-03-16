@@ -20,7 +20,7 @@ public class Integrante {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id_integrante")
-	private long integranteId;
+	private Long integranteId;
 	
 	@NotNull
 	@Column(name = "nm_integrante")

@@ -20,7 +20,7 @@ public class Time {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id_time")
-	private long timeId;
+	private Long timeId;
 
 	@NotNull
 	@Column(name = "dt_time")

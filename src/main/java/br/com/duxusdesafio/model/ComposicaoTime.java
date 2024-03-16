@@ -19,7 +19,7 @@ public class ComposicaoTime {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id_cp_time")
-	private long composicaoId;
+	private Long composicaoId;
 	
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "fk_time")
