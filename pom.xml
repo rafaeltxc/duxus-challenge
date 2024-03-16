@@ -6,18 +6,23 @@
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>2.5.3</version>
-		<relativePath/> <!-- lookup parent from repository -->
+		<relativePath/>
 	</parent>
 	<groupId>br.com</groupId>
 	<artifactId>duxusdesafio</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
 	<name>duxusdesafio</name>
-	<description>Esboço Inicial para o teste do desafio duxus.</description>
+	<description>Desafio técnico para processo seletivo Élin Duxus.</description>
 	<properties>
 		<java.version>1.8</java.version>
 	</properties>
 	<dependencies>
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<optional>true</optional>
+		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
@@ -30,7 +35,6 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
-
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>
@@ -52,26 +56,19 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-
-		<!-- https://mvnrepository.com/artifact/junit/junit -->
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
 			<version>4.12</version>
 			<scope>test</scope>
 		</dependency>
-
-		<!-- https://mvnrepository.com/artifact/com.tngtech.junit.dataprovider/junit4-dataprovider -->
 		<dependency>
 			<groupId>com.tngtech.junit.dataprovider</groupId>
 			<artifactId>junit4-dataprovider</artifactId>
 			<version>2.8</version>
 			<scope>test</scope>
 		</dependency>
-
-
 	</dependencies>
-
 	<build>
 		<plugins>
 			<plugin>
@@ -80,5 +77,4 @@
 			</plugin>
 		</plugins>
 	</build>
-
 </project>
