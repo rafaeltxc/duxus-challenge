@@ -33,7 +33,7 @@ public class Integrante {
 	@Column(name = "it_franquia")
 	private String franquia;
 
-	@OneToMany(mappedBy = "integrante", fetch = FetchType.EAGER)
+	@OneToMany(mappedBy = "integrante", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private List<ComposicaoTime> composicaoTime;
 
 	public Integrante(String franquia, String nome, String funcao, List<ComposicaoTime> composicaoTime) {

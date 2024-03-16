@@ -1,6 +1,7 @@
 package br.com.duxusdesafio.model.domain;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import javax.persistence.*;
@@ -22,10 +23,12 @@ public class ComposicaoTime {
 	
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "fk_time")
+	@JsonIgnore
 	private Time time;
 
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "fk_integrante")
+	@JsonIgnore
 	private Integrante integrante;
 
 	public ComposicaoTime(Time time, Integrante integrante) {

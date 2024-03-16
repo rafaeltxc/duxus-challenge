@@ -28,7 +28,7 @@ public class Time {
 	@Column(name = "ds_time")
 	private String descricao;
 
-	@OneToMany(mappedBy = "time", cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "time", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private List<ComposicaoTime> composicaoTime;
 
 	public Time(LocalDate data, List<ComposicaoTime> composicaoTime) {
