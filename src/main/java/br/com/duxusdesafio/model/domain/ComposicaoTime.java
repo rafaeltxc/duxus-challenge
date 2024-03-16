@@ -1,10 +1,9 @@
-package br.com.duxusdesafio.model;
+package br.com.duxusdesafio.model.domain;
 
 
 import lombok.*;
 
 import javax.persistence.*;
-import java.util.Objects;
 
 
 @Data

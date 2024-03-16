@@ -1,7 +1,7 @@
 package br.com.duxusdesafio.service;
 
-import br.com.duxusdesafio.model.Integrante;
-import br.com.duxusdesafio.model.Time;
+import br.com.duxusdesafio.model.domain.Integrante;
+import br.com.duxusdesafio.model.domain.Time;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
