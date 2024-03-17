@@ -5,17 +5,20 @@ import br.com.duxusdesafio.model.domain.ComposicaoTime;
 import br.com.duxusdesafio.model.input.ComposicaoTimeInput;
 import br.com.duxusdesafio.model.view.ComposicaoTimeView;
 import br.com.duxusdesafio.repositories.ComposicaoTimeRepository;
+import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityNotFoundException;
 import java.util.List;
 
 @Service
-@RequiredArgsConstructor
 public class ComposicaoTimeService {
-    private final ComposicaoTimeRepository cpRepository;
-    private final ModelMapperCf mapper;
+    @Autowired
+    private ComposicaoTimeRepository cpRepository;
+    @Autowired
+    private ModelMapperCf mapper;
 
     public List<ComposicaoTimeView> findAll() {
         List<ComposicaoTime> cps = cpRepository.findAll();

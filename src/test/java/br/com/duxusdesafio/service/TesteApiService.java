@@ -23,7 +23,7 @@ public class TesteApiService {
     private final static LocalDate data1995 = LocalDate.of(1995,1, 1);
 
     @Spy
-    private ApiService apiService;
+    private IntegranteService integranteService;
 
 
     @Before
@@ -60,7 +60,7 @@ public class TesteApiService {
     @UseDataProvider("testTimeDaDataParams")
     public void testTimeDaData(LocalDate data, List<Time> todosOsTimes, Time esperado) {
 
-        Time timeRetornado = apiService.timeDaData(data, todosOsTimes);
+        Time timeRetornado = integranteService.timeDaData(data, todosOsTimes);
 
         assertEquals(esperado, timeRetornado);
     }
@@ -89,7 +89,7 @@ public class TesteApiService {
     @UseDataProvider("testIntegranteMaisUsadoParams")
     public void testIntegranteMaisUsado(LocalDate dataInicial, LocalDate dataFinal, List<Time> todosOsTimes, Integrante esperado) {
 
-        Integrante integranteRetornado = apiService.integranteMaisUsado(dataInicial, dataFinal, todosOsTimes);
+        Integrante integranteRetornado = integranteService.integranteMaisUsado(dataInicial, dataFinal, todosOsTimes);
 
         assertEquals(esperado, integranteRetornado);
     }
@@ -120,7 +120,7 @@ public class TesteApiService {
     @UseDataProvider("testTimeMaisComumParams")
     public void testTimeMaisComum(LocalDate dataInicial, LocalDate dataFinal, List<Time> todosOsTimes, List<String> esperado) {
 
-        List<String> nomeDosIntegrantesDoTimeMaisComum = apiService.timeMaisComum(dataInicial, dataFinal, todosOsTimes);
+        List<String> nomeDosIntegrantesDoTimeMaisComum = integranteService.timeMaisComum(dataInicial, dataFinal, todosOsTimes);
 
         if(nomeDosIntegrantesDoTimeMaisComum != null){
             nomeDosIntegrantesDoTimeMaisComum.sort(Comparator.naturalOrder());
@@ -151,7 +151,7 @@ public class TesteApiService {
     @UseDataProvider("testFuncaoMaisComumParams")
     public void testFuncaoMaisComum(LocalDate dataInicial, LocalDate dataFinal, List<Time> todosOsTimes, String esperado) {
 
-        String funcaoMaisComum = apiService.funcaoMaisComum(dataInicial, dataFinal, todosOsTimes);
+        String funcaoMaisComum = integranteService.funcaoMaisComum(dataInicial, dataFinal, todosOsTimes);
 
         assertEquals(esperado, funcaoMaisComum);
     }
@@ -175,7 +175,7 @@ public class TesteApiService {
     @UseDataProvider("testFranquiaMaisFamosaParams")
     public void testFranquiaMaisFamosa(LocalDate dataInicial, LocalDate dataFinal, List<Time> todosOsTimes, String esperado) {
 
-        String franquiaMaisFamosa = apiService.franquiaMaisFamosa(dataInicial, dataFinal, todosOsTimes);
+        String franquiaMaisFamosa = integranteService.franquiaMaisFamosa(dataInicial, dataFinal, todosOsTimes);
         assertEquals(esperado, franquiaMaisFamosa);
     }
 
@@ -202,7 +202,7 @@ public class TesteApiService {
     @UseDataProvider("testContagemPorFranquiaParams")
     public void testContagemPorFranquia(LocalDate dataInicial, LocalDate dataFinal, List<Time> todosOsTimes, Map<String, Long> esperado) {
 
-        Map<String, Long> contagemPorFranquia = apiService.contagemPorFranquia(dataInicial, dataFinal, todosOsTimes);
+        Map<String, Long> contagemPorFranquia = integranteService.contagemPorFranquia(dataInicial, dataFinal, todosOsTimes);
         assertEquals(esperado, contagemPorFranquia);
     }
 
@@ -232,7 +232,7 @@ public class TesteApiService {
     @UseDataProvider("testContagemPorFuncaoParams")
     public void testContagemPorFuncao(LocalDate dataInicial, LocalDate dataFinal, List<Time> todosOsTimes, Map<String, Long> esperado) {
 
-        Map<String, Long> contagemPorFuncao = apiService.contagemPorFuncao(dataInicial, dataFinal, todosOsTimes);
+        Map<String, Long> contagemPorFuncao = integranteService.contagemPorFuncao(dataInicial, dataFinal, todosOsTimes);
         assertEquals(esperado, contagemPorFuncao);
     }
 

@@ -5,17 +5,18 @@ import br.com.duxusdesafio.model.domain.Time;
 import br.com.duxusdesafio.model.input.TimeInput;
 import br.com.duxusdesafio.model.view.TimeView;
 import br.com.duxusdesafio.repositories.TimeRepository;
-import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityNotFoundException;
 import java.util.List;
 
 @Service
-@RequiredArgsConstructor
 public class TimeService {
-    private final TimeRepository tmRepository;
-    private final ModelMapperCf mapper;
+    @Autowired
+    private TimeRepository tmRepository;
+    @Autowired
+    private ModelMapperCf mapper;
 
     public List<TimeView> findAll() {
         List<Time> tms = tmRepository.findAll();
