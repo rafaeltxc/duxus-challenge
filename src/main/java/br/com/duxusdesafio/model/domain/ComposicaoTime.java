@@ -8,6 +8,9 @@ import lombok.*;
 import java.util.Objects;
 
 
+/**
+ * Classe para configuracao da entidae ComposicaoTime
+ */
 @Data
 @Builder
 @AllArgsConstructor
@@ -15,7 +18,7 @@ import java.util.Objects;
 @Entity
 @Table(name = "tbl_composicao_time")
 public class ComposicaoTime {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id_cp_time")

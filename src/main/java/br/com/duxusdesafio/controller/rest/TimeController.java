@@ -10,12 +10,20 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+/**
+ * Time controlador
+ */
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("/api/v1/time")
 public class TimeController {
     private final TimeService tmService;
 
+    /**
+     * Busca todos os times na base de dados
+     *
+     * @return Todas os times achados
+     */
     @ResponseBody
     @GetMapping("/")
     public ResponseEntity<List<TimeView>> findAll() {
@@ -23,6 +31,12 @@ public class TimeController {
                 .body(tmService.findAll());
     }
 
+    /**
+     * Busca um unico time na base de dados com base no identificador dado
+     *
+     * @param id Itentificador unico
+     * @return Time
+     */
     @ResponseBody
     @GetMapping("/{id}")
     public ResponseEntity<TimeView> findById(@PathVariable Long id) {
@@ -30,18 +44,38 @@ public class TimeController {
                 .body(tmService.findById(id));
     }
 
+    /**
+     * Salva um novo time na base de dados
+     *
+     * @param tmInput Time a ser salvo
+     * @return Time salvo
+     */
     @ResponseBody
     @PostMapping("/")
     public ResponseEntity<TimeView> saveOne(@RequestBody TimeInput tmInput) {
-        return ResponseEntity.status(HttpStatus.CREATED).body(tmService.saveOne(tmInput));
+        return ResponseEntity.status(HttpStatus.CREATED)
+                .body(tmService.saveOne(tmInput));
     }
 
+    /**
+     * Atualiza um time da base de dados com base no identificador dado
+     *
+     * @param id Identificador unico
+     * @param tmInput Time com as devidas alteracoes
+     * @return Status code No Content
+     */
     @PutMapping("/{id}")
     public ResponseEntity updateOne(@PathVariable Long id, @RequestBody TimeInput tmInput) {
         tmService.updateOne(id, tmInput);
         return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
     }
 
+    /**
+     * Deleta um time da base de dados com base no idetificador dado
+     *
+     * @param id Identificador unico
+     * @return Status code No Content
+     */
     @DeleteMapping("/{id}")
     public ResponseEntity deleteOne(@PathVariable Long id) {
         tmService.deleteOne(id);
