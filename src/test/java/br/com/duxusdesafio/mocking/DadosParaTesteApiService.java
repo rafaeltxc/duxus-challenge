@@ -1,4 +1,4 @@
-package br.com.duxusdesafio.service;
+package br.com.duxusdesafio.mocking;
 
 import br.com.duxusdesafio.model.domain.ComposicaoTime;
 import br.com.duxusdesafio.model.domain.Integrante;

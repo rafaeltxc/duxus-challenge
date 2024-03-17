@@ -7,10 +7,12 @@ import br.com.duxusdesafio.model.domain.Time;
 import br.com.duxusdesafio.model.input.IntegranteInput;
 import br.com.duxusdesafio.model.view.IntegranteView;
 import br.com.duxusdesafio.repositories.IntegranteRepository;
+import br.com.duxusdesafio.utils.Helper;
+import jakarta.persistence.EntityNotFoundException;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.persistence.EntityNotFoundException;
 import java.time.LocalDate;
 import java.util.*;
 import java.util.stream.Collectors;
@@ -21,6 +23,12 @@ public class IntegranteService {
     private IntegranteRepository itRepository;
     @Autowired
     private ModelMapperCf mapper;
+    @Autowired
+    private Helper helper;
+
+    public IntegranteService(Helper helper) {
+        this.helper = helper;
+    }
 
     public List<IntegranteView> findAll() {
         List<Integrante> its = itRepository.findAll();
@@ -59,10 +67,7 @@ public class IntegranteService {
     }
 
     public Integrante integranteMaisUsado(LocalDate dataInicial, LocalDate dataFinal, List<Time> todosOsTimes){
-        List<Time> tms = todosOsTimes.stream()
-                .filter(time -> !time.getData().isBefore(dataInicial) &&
-                        !time.getData().isAfter(dataFinal))
-                .collect(Collectors.toList());
+        List<Time> tms = helper.achaPorPeriodo(dataInicial, dataFinal, todosOsTimes);
 
         return tms.stream()
                 .map(Time::getComposicaoTime)

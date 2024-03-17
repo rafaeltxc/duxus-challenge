@@ -5,10 +5,10 @@ import br.com.duxusdesafio.model.domain.Time;
 import br.com.duxusdesafio.model.input.TimeInput;
 import br.com.duxusdesafio.model.view.TimeView;
 import br.com.duxusdesafio.repositories.TimeRepository;
+import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.persistence.EntityNotFoundException;
 import java.util.List;
 
 @Service

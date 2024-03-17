@@ -4,6 +4,7 @@ import br.com.duxusdesafio.model.domain.Integrante;
 import br.com.duxusdesafio.model.domain.Time;
 import br.com.duxusdesafio.mocking.DadosParaTesteApiService;
 import br.com.duxusdesafio.service.IntegranteService;
+import br.com.duxusdesafio.utils.Helper;
 import com.tngtech.java.junit.dataprovider.DataProvider;
 import com.tngtech.java.junit.dataprovider.DataProviderRunner;
 import com.tngtech.java.junit.dataprovider.UseDataProvider;
@@ -21,13 +22,13 @@ import static org.junit.Assert.assertEquals;
 
 @SpringBootTest
 @RunWith(DataProviderRunner.class)
-public class TesteApiService {
+public class IntegranteServiceTest {
 
     private final static LocalDate data1993 = LocalDate.of(1993,1, 1);
     private final static LocalDate data1995 = LocalDate.of(1995,1, 1);
 
     @Spy
-    private IntegranteService integranteService;
+    private IntegranteService integranteService = new IntegranteService(new Helper());
 
 
     @Before
