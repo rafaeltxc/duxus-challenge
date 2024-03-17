@@ -6,12 +6,12 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Objects;
 
 @Data
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@EqualsAndHashCode
 @Entity
 @Table(name = "tbl_time")
 public class Time {
@@ -34,5 +34,27 @@ public class Time {
 	public Time(LocalDate data, List<ComposicaoTime> composicaoTime) {
 		this.data = data;
 		this.composicaoTime = composicaoTime;
+	}
+
+	@Override
+	public final boolean equals(Object o) {
+		if (this == o) return true;
+		if (!(o instanceof Time)) return false;
+		Time time = (Time) o;
+		return timeId == time.timeId && Objects.equals(data, time.data);
+	}
+
+	@Override
+	public final int hashCode() {
+		return Objects.hash(timeId, data);
+	}
+
+	@Override
+	public String toString() {
+		return "Time{" +
+				"id=" + timeId +
+				", data=" + data +
+				", descricao=" + descricao +
+				'}';
 	}
 }

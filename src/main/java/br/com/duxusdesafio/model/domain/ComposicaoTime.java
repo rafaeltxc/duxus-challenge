@@ -5,13 +5,13 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.Objects;
 
 
 @Data
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@EqualsAndHashCode
 @Entity
 @Table(name = "tbl_composicao_time")
 public class ComposicaoTime {
@@ -34,5 +34,26 @@ public class ComposicaoTime {
 	public ComposicaoTime(Time time, Integrante integrante) {
 		this.time = time;
 		this.integrante = integrante;
+	}
+
+	@Override
+	public final boolean equals(Object o) {
+		if (this == o) return true;
+		if (!(o instanceof ComposicaoTime)) return false;
+		ComposicaoTime that = (ComposicaoTime) o;
+		return composicaoId == that.composicaoId && Objects.equals(time, that.time) && Objects.equals(integrante, that.integrante);
+	}
+
+	@Override
+	public final int hashCode() {
+		return Objects.hash(composicaoId, time, integrante);
+	}
+
+	@Override
+	public String toString() {
+		return "ComposicaoTime{" +
+				"time=" + time +
+				", integrante=" + integrante +
+				'}';
 	}
 }
