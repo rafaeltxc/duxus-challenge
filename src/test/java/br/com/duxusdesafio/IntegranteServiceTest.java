@@ -1,7 +1,9 @@
-package br.com.duxusdesafio.service;
+package br.com.duxusdesafio;
 
 import br.com.duxusdesafio.model.domain.Integrante;
 import br.com.duxusdesafio.model.domain.Time;
+import br.com.duxusdesafio.mocking.DadosParaTesteApiService;
+import br.com.duxusdesafio.service.IntegranteService;
 import com.tngtech.java.junit.dataprovider.DataProvider;
 import com.tngtech.java.junit.dataprovider.DataProviderRunner;
 import com.tngtech.java.junit.dataprovider.UseDataProvider;
@@ -10,12 +12,14 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.MockitoAnnotations;
 import org.mockito.Spy;
+import org.springframework.boot.test.context.SpringBootTest;
 
 import java.time.LocalDate;
 import java.util.*;
 
 import static org.junit.Assert.assertEquals;
 
+@SpringBootTest
 @RunWith(DataProviderRunner.class)
 public class TesteApiService {
 
