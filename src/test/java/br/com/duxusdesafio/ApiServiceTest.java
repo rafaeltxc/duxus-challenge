@@ -23,7 +23,7 @@ import static org.junit.Assert.assertEquals;
 
 @SpringBootTest
 @RunWith(DataProviderRunner.class)
-public class IntegranteServiceTest {
+public class ApiServiceTest {
 
     private final static LocalDate data1993 = LocalDate.of(1993,1, 1);
     private final static LocalDate data1995 = LocalDate.of(1995,1, 1);
