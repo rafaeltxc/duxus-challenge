@@ -4,6 +4,7 @@ import br.com.duxusdesafio.model.domain.Integrante;
 import br.com.duxusdesafio.model.domain.Time;
 import br.com.duxusdesafio.mocking.DadosParaTesteApiService;
 import br.com.duxusdesafio.service.IntegranteService;
+import br.com.duxusdesafio.service.TimeService;
 import br.com.duxusdesafio.utils.Helper;
 import com.tngtech.java.junit.dataprovider.DataProvider;
 import com.tngtech.java.junit.dataprovider.DataProviderRunner;
@@ -29,6 +30,8 @@ public class IntegranteServiceTest {
 
     @Spy
     private IntegranteService integranteService = new IntegranteService(new Helper());
+    @Spy
+    private TimeService timeService;
 
 
     @Before
@@ -65,7 +68,7 @@ public class IntegranteServiceTest {
     @UseDataProvider("testTimeDaDataParams")
     public void testTimeDaData(LocalDate data, List<Time> todosOsTimes, Time esperado) {
 
-        Time timeRetornado = integranteService.timeDaData(data, todosOsTimes);
+        Time timeRetornado = timeService.timeDaData(data, todosOsTimes);
 
         assertEquals(esperado, timeRetornado);
     }

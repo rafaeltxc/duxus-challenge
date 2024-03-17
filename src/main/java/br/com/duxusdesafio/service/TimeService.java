@@ -8,7 +8,9 @@ import br.com.duxusdesafio.repositories.TimeRepository;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.GetMapping;
 
+import java.time.LocalDate;
 import java.util.List;
 
 /**
@@ -82,5 +84,23 @@ public class TimeService {
         Time tm = tmRepository.findById(id)
                 .orElseThrow(EntityNotFoundException::new);
         tmRepository.deleteById(id);
+    }
+
+    /**
+     * Retorna um time no qual a data e igual a data dada
+     *
+     * @param data Data
+     * @param todosOsTimes Lista de todos os times
+     * @return Time
+     */
+    public Time timeDaData(LocalDate data, List<Time> todosOsTimes){
+        // Cria um stream a partir da lista de times
+        return todosOsTimes.stream()
+                // Filtra o time com a data correspondente a data dada
+                .filter(time -> time.getData().equals(data))
+                // Pega o primeiro resultado encontrado
+                .findFirst()
+                // Caso nao haja resultado, retorna null
+                .orElse(null);
     }
 }
