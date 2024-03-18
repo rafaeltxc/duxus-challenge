@@ -10,7 +10,8 @@ import java.util.List;
 @Getter
 @Setter
 public class TimeView {
+    private Long timeId;
+    private String nome;
     private LocalDate data;
-    private String descricao;
     private List<ComposicaoTime> composicaoTime;
 }

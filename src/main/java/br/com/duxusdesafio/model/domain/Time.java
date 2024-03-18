@@ -22,11 +22,12 @@ public class Time {
 	private Long timeId;
 
 	@NotNull
+	@Column(name = "nm_time")
+	private String nome;
+
+	@NotNull
 	@Column(name = "dt_time")
     private LocalDate data;
-
-	@Column(name = "ds_time")
-	private String descricao;
 
 	@OneToMany(mappedBy = "time", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private List<ComposicaoTime> composicaoTime;
@@ -53,8 +54,8 @@ public class Time {
 	public String toString() {
 		return "Time{" +
 				"id=" + timeId +
+				"nome=" + nome +
 				", data=" + data +
-				", descricao=" + descricao +
 				'}';
 	}
 }
