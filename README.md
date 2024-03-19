@@ -25,16 +25,16 @@ utilizando Docker e já com as configurações necessárias.
 Se desejar usar outras configuraçoes para a base de dados, altere o [application.properties](https://github.com/rafaeltxc/duxus-challenge/blob/main/src/main/resources/application.properties)
 de acordo com a sua preferência.
 
-Caso escolha por iniciar a aplicação manualmente, são necessários dois passos. Primeiro, inicialize o Back-End, o qual pode ser feito
+São necessários dois passos para iniciar a aplicação. Primeiro, inicialize o Back-End, o qual pode ser feito
 normalmente da mesma forma padrão que o SpringBoot utiliza, através da IDE ou da linha de comando.
 Com o servidor Back-End ativo, acesse a pasta [front-end](https://github.com/rafaeltxc/duxus-challenge/tree/main/front-end)
-e execute o comando yarn ou yarn install para instalar os pacotes necessários.
-Após a instalação dos pacotes, o comando yarn dev irá inicializar o servidor, o qual estará disponível na URL:
+e execute o comando **yarn** ou **yarn install** para instalar os pacotes necessários.
+Após a instalação dos pacotes, o comando **yarn dev** irá inicializar o servidor, o qual estará disponível na URL:
 
  - http://localhost:5173/
 
 O Hibernate irá executar o código SQL automaticamente para a criação de tabelas na base de dados.
-Caso deseje fazer essa operação manualmente, o arquivo esquema-base.sql possui o SQL para executar a criação de
+Caso deseje fazer essa operação manualmente, o arquivo [esquema-base.sql](https://github.com/rafaeltxc/duxus-challenge/blob/main/base-de-dados/esquema-base.sql) possui o SQL para executar a criação de
 tabelas no banco PostgreSQL.
 
 Após finalizados os passos, a aplicação já estara ativa para receber requisições. O arquivo Após finalizados os passos,
