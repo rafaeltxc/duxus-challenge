@@ -18,7 +18,7 @@ de forma simples, executar a persistência dos dados na base.
 
 ### Utilização
 A criação da base de dados pode ser feita manualmente, ou se preferível, através da pasta [base-de-dados](https://github.com/rafaeltxc/duxus-challenge/tree/main/base-de-dados),
-onde o arquivo [comando-start-container.txt](https://github.com/rafaeltxc/duxus-challenge/blob/main/comando-start-container.txt)
+onde o arquivo [comando-start-container.txt](https://github.com/rafaeltxc/duxus-challenge/blob/main/base-de-dados/comando-start-container.txt)
 contém o comando para a criação de um container PostgreSQL,
 utilizando Docker e já com as configurações necessárias.
 
