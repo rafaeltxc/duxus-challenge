@@ -17,25 +17,13 @@ de forma simples, executar a persistência dos dados na base.
 </div>
 
 ### Utilização
-A criação da base de dados pode ser feita manualmente, ou se preferível, é possível executar o programa mais facilmente
-através de containers, o programa possui um [docker-compose](), que pode ser utilizado com o comando:
-```console
-docker compose up
-```
+A criação da base de dados pode ser feita manualmente, ou se preferível, através da pasta [base-de-dados](https://github.com/rafaeltxc/duxus-challenge/tree/main/base-de-dados),
+onde o arquivo [comando-start-container.txt](https://github.com/rafaeltxc/duxus-challenge/blob/main/comando-start-container.txt)
+contém o comando para a criação de um container PostgreSQL,
+utilizando Docker e já com as configurações necessárias.
 
-Caso decida usar o docker compose, será necessário fazer a alteração da URI de conexão com o banco de dados no arquivo
-[application.properties](https://github.com/rafaeltxc/duxus-challenge/blob/main/src/main/resources/application.properties),
-utilizar a configuração:
-
-```console
-spring.datasource.url=jdbc:postgresql://postgresql:5432/duxus
-```
-Ao invés de:
-```console
-spring.datasource.url=jdbc:postgresql://localhost:5432/duxus
-```
-
-Se desejar usar outras configuraçoes para a base de dados, altere também o arquivo de acordo com a sua preferência.
+Se desejar usar outras configuraçoes para a base de dados, altere o [application.properties](https://github.com/rafaeltxc/duxus-challenge/blob/main/src/main/resources/application.properties)
+de acordo com a sua preferência.
 
 Caso escolha por iniciar a aplicação manualmente, são necessários dois passos. Primeiro, inicialize o Back-End, o qual pode ser feito
 normalmente da mesma forma padrão que o SpringBoot utiliza, através da IDE ou da linha de comando.
