@@ -60,6 +60,12 @@ public class ComposicaoTimeService {
         return mapper.map(cp, ComposicaoTimeView.class);
     }
 
+    public List<ComposicaoTimeView> saveMany(List<ComposicaoTimeInput> cpInputs) {
+        List<ComposicaoTime> cps = cpRepository
+                .saveAll(mapper.mapList(cpInputs, ComposicaoTime.class));
+        return mapper.mapList(cps, ComposicaoTimeView.class);
+    }
+
     /**
      * Recebe uma composicao, mapeia o objeto para o tipo de objeto padrao
      * e atualiza o objeto ja existente na base da dados com

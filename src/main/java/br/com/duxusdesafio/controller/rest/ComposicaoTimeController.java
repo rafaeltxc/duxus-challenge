@@ -57,6 +57,13 @@ public class ComposicaoTimeController {
                 .body(cpService.saveOne(cpInput));
     }
 
+    @ResponseBody
+    @PostMapping("/save-many")
+    public ResponseEntity<List<ComposicaoTimeView>> saveMany(@RequestBody List<ComposicaoTimeInput> cpInputs) {
+        return ResponseEntity.status(HttpStatus.CREATED)
+                .body(cpService.saveMany(cpInputs));
+    }
+
     /**
      * Atualiza uma composicao da base de dados com base no identificador dado
      *
