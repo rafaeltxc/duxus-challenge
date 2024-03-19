@@ -17,26 +17,18 @@ public class Helper {
      * @return Data extraida
      */
     public <T> T extrairData(Object obj) {
-        // Classe do objeto
         Class<?> clazz = obj.getClass();
 
-        // Loop pelas propriedades
         for (Field field: clazz.getDeclaredFields()) {
-            // Configura acesso a propriedade
             field.setAccessible(true);
 
-            // Validacao do tipo da propriedade
             if (field.getType().equals(LocalDate.class)) {
-                // Inicia variavel
                 T propertyValue = null;
                 try {
-                    // Defini varivael com o valor do campo obtido
                     propertyValue = (T) field.get(obj);
                 } catch (IllegalAccessException e) {
-                    // Lanca nova excessao em caso de erro
                     throw new RuntimeException(e);
                 }
-                // Retorna variable com a data obtida ou null
                 return propertyValue;
             }
         }
@@ -53,16 +45,11 @@ public class Helper {
      * @return List de objetos obtidos
      */
     public <D> List<D> achaPorPeriodo(LocalDate dataInicial, LocalDate dataFinal, List<D> objs) {
-        // Cria uma stream com a lista de objetos
         return objs.stream()
-                // Fitra os objetos com a logica de datas
                 .filter(obj -> {
-                    // Obtem data do objeto generico
                     LocalDate data = extrairData(obj);
-                    // Checa se data do objeto e valido e adiciona a lista
                     return data.isAfter(dataInicial) && data.isBefore(dataFinal);
                 })
-                // Retorna lista com objetos obtidos
                 .collect(Collectors.toList());
     }
 }

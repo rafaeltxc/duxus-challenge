@@ -105,20 +105,13 @@ public class IntegranteService {
      * @return Integrate
      */
     public Integrante integranteMaisUsado(LocalDate dataInicial, LocalDate dataFinal, List<Time> todosOsTimes){
-        // Busca os times com data correspondente ao respectivo periodo dado
         List<Time> tms = helper.achaPorPeriodo(dataInicial, dataFinal, todosOsTimes);
 
-        // Cria um stream a partir da lista de times encontrados
         return tms.stream()
-                // Retorna uma lista de ComposicaoTime
                 .map(Time::getComposicaoTime)
-                // Tranforma lista em uma stream
                 .flatMap(List::stream)
-                // Retorna lista com todos os integrantes de todas as composicoes
                 .map(ComposicaoTime::getIntegrante)
-                // Busca o integrante mais comum
                 .min(Comparator.comparing(String::valueOf))
-                // Caso nao haja resultado, retorna null
                 .orElse(null);
     }
 
@@ -132,34 +125,21 @@ public class IntegranteService {
      * @return Lista com nome dos integrantes
      */
     public List<String> timeMaisComum(LocalDate dataInicial, LocalDate dataFinal, List<Time> todosOsTimes){
-        // Busca os times com data correspondente ao respectivo periodo dado
         List<Time> tms = helper.achaPorPeriodo(dataInicial, dataFinal, todosOsTimes);
 
-        // Cria um stream a partir da lista de times encontrados
         LocalDate tmData = tms.stream()
-                // Retorna lista de datas de todos os times
                 .map(Time::getData)
-                // Retorna data mais comum
                 .max(LocalDate::compareTo)
-                // Retorna resultado
                 .get();
 
-        // Cria um stream a partir da lista de times econtrados
         Time tm = tms.stream()
-                // Busca o time no qual a data e igual a data econtrada ne variavel anterior
                 .filter(time -> time.getData().equals(tmData))
-                // Retorna qualquer item da lista no qual a data seja valida
                 .findAny()
-                // Retorna resultado
                 .get();
 
-        // Cria um stream a partir da lista de composicoes do time encontrado
         return tm.getComposicaoTime().stream()
-                // Retorna lista de integrantes
                 .map(ComposicaoTime::getIntegrante)
-                // Retorna nome dos integrantes
                 .map(Integrante::getNome)
-                // Retorna lista de resultados
                 .collect(Collectors.toList());
     }
 
@@ -172,27 +152,17 @@ public class IntegranteService {
      * @return Funcao mais comum
      */
     public String funcaoMaisComum(LocalDate dataInicial, LocalDate dataFinal, List<Time> todosOsTimes){
-        // Busca os times com data correspondente ao respectivo periodo dado
         List<Time> tms = helper.achaPorPeriodo(dataInicial, dataFinal, todosOsTimes);
 
-        // Cria um stream a partir da lista de times econtrados
         List<Integrante> its = tms.stream()
-                // Retorna lista de composicoes
                 .map(Time::getComposicaoTime)
-                // Transforma lista em stream
                 .flatMap(List::stream)
-                // Retorna lista de integrantes
                 .map(ComposicaoTime::getIntegrante)
-                // Retorna lista com os resultados
                 .collect(Collectors.toList());
 
-        // Cria um stream a partir da lista de integrantes econtrados
         return its.stream()
-                // Retorna lista de funcoes
                 .map(Integrante::getFuncao)
-                // Retorna a funcao mais comum
                 .min(Comparator.comparing(String::valueOf))
-                // Caso nao haja resultado, retorna null
                 .orElse(null);
     }
 
@@ -205,27 +175,17 @@ public class IntegranteService {
      * @return Franquia mais comum
      */
     public String franquiaMaisFamosa(LocalDate dataInicial, LocalDate dataFinal, List<Time> todosOsTimes) {
-        // Busca os times com data correspondente ao respectivo periodo dado
         List<Time> tms = helper.achaPorPeriodo(dataInicial, dataFinal, todosOsTimes);
 
-        // Cria um stream a partir da lista de times econtrados
         List<Integrante> its = tms.stream()
-                // Retorna lista de composicoes
                 .map(Time::getComposicaoTime)
-                // Transforma lista em stream
                 .flatMap(List::stream)
-                // Retorna lista de integrantes
                 .map(ComposicaoTime::getIntegrante)
-                // Retorna lista com os resultados
                 .collect(Collectors.toList());
 
-        // Cria um stream a partir da lista de integrantes econtrados
         return its.stream()
-                // Retorna lista de franquias
                 .map(Integrante::getFranquia)
-                // Retorna a franquia mais comum
                 .min(Comparator.comparing(String::valueOf))
-                // Caso nao haja resultado, retorna null
                 .orElse(null);
     }
 
@@ -238,27 +198,18 @@ public class IntegranteService {
      * @return Franquia mais comum
      */
     public Map<String, Long> contagemPorFranquia(LocalDate dataInicial, LocalDate dataFinal, List<Time> todosOsTimes){
-        // Busca os times com data correspondente ao respectivo periodo dado
         List<Time> tms = helper.achaPorPeriodo(dataInicial, dataFinal, todosOsTimes);
 
-        // Cria um novo HashMap
         HashMap<String, Long> map = new HashMap<>();
-        // Cria um stream a partir da lista de times econtrados
         tms.stream()
-                // Retorna lista de composicoes
                 .map(Time::getComposicaoTime)
-                // Transforma lista em stream
                 .flatMap(List::stream)
-                // Retorna lista de integrantes
                 .map(ComposicaoTime::getIntegrante)
-                // Loop em cada integrante encontrado
                 .forEach(it -> {
-                    // Inclui cada franquia no HashMap e atualiza a sua quantidade
                     map.put(it.getFranquia(),
                             map.getOrDefault(it.getFranquia(), 0L) + 1);
                 });
 
-        // Retorna HashMap com resultado
         return map;
     }
 
@@ -271,27 +222,18 @@ public class IntegranteService {
      * @return Franquia mais comum
      */
     public Map<String, Long> contagemPorFuncao(LocalDate dataInicial, LocalDate dataFinal, List<Time> todosOsTimes){
-        // Busca os times com data correspondente ao respectivo periodo dado
         List<Time> tms = helper.achaPorPeriodo(dataInicial, dataFinal, todosOsTimes);
 
-        // Cria um novo HashMap
         HashMap<String, Long> map = new HashMap<>();
-        // Cria um stream a partir da lista de times econtrados
         tms.stream()
-                // Retorna lista de composicoes
                 .map(Time::getComposicaoTime)
-                // Transforma lista em stream
                 .flatMap(List::stream)
-                // Retorna lista de integrantes
                 .map(ComposicaoTime::getIntegrante)
-                // Loop em cada integrante encontrado
                 .forEach(it -> {
-                    // Inclui cada funcao no HashMap e atualiza a sua quantidade
                     map.put(it.getFuncao(),
                             map.getOrDefault(it.getFuncao(), 0L) + 1);
                 });
 
-        // Retorna HashMap com resultado
         return map;
     }
 }
