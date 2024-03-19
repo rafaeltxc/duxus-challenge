@@ -9,9 +9,11 @@ PostgreSQL.
 O Front-End foi desenvolvido com React e TypeScript, utilizando Vite para criar a aplicação. O programa possui
 duas telas, uma para a inserção de **Integrantes**, e uma para a criação de novas **Composições** e seus respectivos
 **Times**. Integrado com a API, é possível, de forma simples, executar a persistência dos dados na base.
-
-![Tela Integrante](https://github.com/rafaeltxc/duxus-challenge/tree/main/readme-extras/tela-integrante.png)
-![Tela composição](https://github.com/rafaeltxc/duxus-challenge/tree/main/readme-extras/tela-composicao.png)
+<div align="center">
+ <img src="/readme-extras/tela-integrante.png" height="350" />
+ <br/>
+ <img src="/readme-extras/tela-composicao.png" height="350" />
+</div>
 
 ### Utilização
 A criação da base de dados pode ser feita manualmente, ou se preferível, há dentro da pasta [base-de-dados](https://github.com/rafaeltxc/duxus-challenge/tree/main/base-de-dados),
