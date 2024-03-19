@@ -1,0 +1,58 @@
+[
+  // Integrantes
+  {
+    "nome": "Fulano",
+    "funcao": "Top",
+    "franquia": "league_of_legends"
+  },
+  {
+    "nome": "Ciclano",
+    "funcao": "AWPer",
+    "franquia": "counter_strike_2"
+  },
+  {
+    "nome": "Beltrano",
+    "funcao": "Controlador",
+    "franquia": "valorant"
+  },
+
+  // Times
+  {
+    "data": "2012-12-12",
+    "nome": "Loud"
+  },
+  {
+    "data": "2012-12-13",
+    "nome": "Red Canids"
+  },
+  {
+    "data": "2012-12-14",
+    "nome": "Cloud9"
+  },
+
+  // Composições de times
+  {
+      "integrante": {
+          "integranteId": 1
+      },
+      "time": {
+          "timeId": 1
+      }
+  },
+  {
+      "integrante": {
+          "integranteId": 2
+      },
+      "time": {
+          "timeId": 2
+      }
+  },
+  {
+      "integrante": {
+          "integranteId": 3
+      },
+      "time": {
+          "timeId": 3
+      }
+  }
+]
