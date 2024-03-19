@@ -1,0 +1,10 @@
+.about {
+  width: 212px;
+  display: flex;
+  justify-content: space-between;
+}
+
+a {
+  font-weight: 600;
+  color: #01173b;
+}
