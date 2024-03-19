@@ -25,7 +25,7 @@ o foco nos requisitos mais importantes. Todos os requisitos foram atendidos e a 
  - **Tratamento de erros**
     - O programa possui um sistema de tratamento de erros básico, e que pode ser aprimorado para abranger
     um maior número de erros tratados. Não foram criados tratamentos de erros customizados,
-    apenas utilizadas as classes de erros padrões que o framework oferece.
+    apenas utilizadas as classes de erros padrões que a linguagem oferece.
 
 <br>
 
@@ -56,6 +56,22 @@ o foco nos requisitos mais importantes. Todos os requisitos foram atendidos e a 
 O Front-End foi desenvolvido com React e TypeScript, utilizando Vite para criar a aplicação. O programa possui
 duas telas, uma para a inserção de **Integrantes**, e uma para a criação de novas **Composições** e seus respectivos
 **Times**. Integrado com a API, é possível, de forma simples, executar a persistência dos dados na base.
+
+### Utilização
+**Observação:** Devido ao uso do pacote "react-router-dom" no projeto Front-End, não foi possível fazer o bundle
+do projeto para uma inicialização mais simples da aplicação, com todas as URLs no mesmo lugar, devido
+a uma inconsistência de renderização nas trocas de páginas e redirecionamento de URLs quando os projetos estavam
+acoplados.
+
+Para iniciar, são necessários dois passos. Primeiro, inicialize o Back-End, o qual pode ser feito normalmente
+da mesma forma padrão que o SpringBoot utiliza, através da IDE ou da linha de comando. Com o servidor
+Back-End ativo, acesse a pasta [front-end](https://github.com/rafaeltxc/duxus-challenge/tree/main/front-end)
+e execute o comando yarn ou yarn install para instalar os pacotes necessários. Após a instalação dos pacotes,
+o comando yarn dev irá inicializar o servidor, o qual estará disponível na URL:
+
+ - http://localhost:5173/
+
+Após finalizados os passos, a aplicação já estara ativa para receber qualquer request.
 
 ### Observações pessoais & Sugestões
 Embora o teste tivesse uma base sólida para dar inicio as ideias, notei alguns detalhes que poderiam ser
