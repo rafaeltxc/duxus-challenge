@@ -1,0 +1,17 @@
+.ant-card-body {
+  height: 100%;
+}
+
+.ant-form-item {
+  width: 70%;
+  height: 100%;
+  margin: 0
+}
+
+.ant-card-head {
+  height: 10px;
+}
+
+.ant-card-head-title {
+  font-size: 15px;
+}
